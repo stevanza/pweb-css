@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduTech - Platform Kursus Online</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-color: #1f2937;
+            --light-bg: #f3f4f6;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            background: linear-gradient(rgba(37,99,235,0.9), rgba(30,64,175,0.9)), url('/api/placeholder/1920/1080');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 5rem 1rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: white;
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Courses Section */
+        .courses {
+            padding: 4rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .course-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .course-content {
+            padding: 1.5rem;
+        }
+
+        .course-category {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .course-title {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        .course-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .price {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* Features Section */
+        .features {
+            background-color: var(--light-bg);
+            padding: 4rem 1rem;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 4rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-color);
+            color: white;
+            padding: 3rem 1rem;
+            margin-top: 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">EduTech</div>
+            <ul>
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#courses">Kursus</a></li>
+                <li><a href="#features">Fitur</a></li>
+                <li><a href="#testimonials">Testimoni</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Tingkatkan Skillmu Bersama Kami</h1>
+            <p>Raih kesuksesan dengan kursus online berkualitas dari instruktur profesional</p>
+            <a href="#courses" class="cta-button">Mulai Belajar</a>
+        </div>
+    </section>
+
+    <section class="courses" id="courses">
+        <div class="section-title">
+            <h2>Kursus Populer</h2>
+            <p>Pilih dari berbagai kursus berkualitas untuk mengembangkan keahlianmu</p>
+        </div>
+        <div class="courses-grid">
+            <div class="course-card">
+                <img src="/api/placeholder/400/300" alt="Web Development" class="course-image">
+                <div class="course-content">
+                    <div class="course-category">Programming</div>
+                    <h3 class="course-title">Web Development Fundamentals</h3>
+                    <p>Pelajari dasar-dasar pengembangan web modern dengan HTML, CSS, dan JavaScript.</p>
+                    <div class="course-info">
+                        <span>8 minggu</span>
+                        <span class="price">Rp 1.500.000</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <img src="/api/placeholder/400/300" alt="Digital Marketing" class="course-image">
+                <div class="course-content">
+                    <div class="course-category">Marketing</div>
+                    <h3 class="course-title">Digital Marketing Strategy</h3>
+                    <p>Kuasai strategi pemasaran digital untuk mengembangkan bisnis online.</p>
+                    <div class="course-info">
+                        <span>6 minggu</span>
+                        <span class="price">Rp 2.000.000</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <img src="/api/placeholder/400/300" alt="UI/UX Design" class="course-image">
+                <div class="course-content">
+                    <div class="course-category">Design</div>
+                    <h3 class="course-title">UI/UX Design Masterclass</h3>
+                    <p>Pelajari prinsip desain dan prototyping untuk menciptakan pengalaman pengguna yang baik.</p>
+                    <div class="course-info">
+                        <span>10 minggu</span>
+                        <span class="price">Rp 2.500.000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="section-title">
+            <h2>Kenapa Memilih Kami?</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📚</div>
+                <h3>Materi Berkualitas</h3>
+                <p>Materi pembelajaran yang terstruktur dan selalu diperbarui</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👨‍🏫</div>
+                <h3>Instruktur Profesional</h3>
+                <p>Belajar dari praktisi dan ahli di bidangnya</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎓</div>
+                <h3>Sertifikat Resmi</h3>
+                <p>Dapatkan sertifikat setelah menyelesaikan kursus</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <div class="section-title">
+            <h2>Apa Kata Mereka?</h2>
+        </div>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Kursus yang sangat membantu untuk memulai karir di bidang web development. Materinya lengkap dan mudah dipahami."</p>
+                <div class="testimonial-author">- Ahmad S.</div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Instrukturnya sangat profesional dan selalu siap membantu ketika ada kesulitan dalam pembelajaran."</p>
+                <div class="testimonial-author">- Sarah D.</div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Saya bisa belajar dengan fleksibel sesuai jadwal saya. Materi yang diberikan sangat relevan dengan kebutuhan industri."</p>
+                <div class="testimonial-author">- Michael R.</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>EduTech</h3>
+                <p>Platform kursus online terbaik untuk meningkatkan skillmu.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Kontak</h3>
+                <ul>
+                    <li>Email: info@edutech.com</li>
+                    <li>Phone: (021) 1234-5678</li>
+                    <li>Alamat: Jl. Pendidikan No. 123</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Link Penting</h3>
+                <ul>
+                    <li><a href="#courses">Kursus</a></li>
+                    <li><a href="#about">Tentang Kami</a></li>
+                    <li><a href="#contact">Hubungi Kami</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
